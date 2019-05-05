@@ -13,14 +13,13 @@
     "build": "npm run remove:dist && webpack --display-error-details && npm run copy:index && npm run copy:styles",
     "build:prod": "npm run lint && npm run build",
     "start": "node ./node_modules/http-server/bin/http-server ./dist",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint": "eslint ./src/**/*.js",
     "lint:fix": "eslint --fix ./src/**/*.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "popper": "1.0.1",
     "bootstrap": "4.3.1"
   },
   "devDependencies": {
@@ -34,6 +33,7 @@
     "http-server": "0.11.1",
     "webpack": "4.30.0",
     "webpack-cli": "3.3.2",
-    "rimraf": "2.6.3"
+    "rimraf": "2.6.3",
+    "jest": "24.8.0"
   }
 }
