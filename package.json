@@ -4,8 +4,13 @@
   "description": "RS School Youtube Task",
   "main": "./src/index.html",
   "scripts": {
+    "remove:dist": "rimraf -f ./dist",
+    "copy:bootstrap:js": "copyfiles -u 4 ./node_modules/bootstrap/dist/js/bootstrap.min.js ./dist/js",
+    "copy:bootstrap:css": "copyfiles -u 4 ./node_modules/bootstrap/dist/css/bootstrap.min.css ./dist/css",
+    "copy:bootstrap": "npm run copy:bootstrap:css && npm run copy:bootstrap:js",
+    "copy:styles": "copyfiles -u 2 ./src/styles/*.css ./dist/css && npm run copy:bootstrap",
     "copy:index": "copyfiles -u 1 ./src/index.html ./dist",
-    "build": "webpack --display-error-details && npm run copy:index",
+    "build": "npm run remove:dist && webpack --display-error-details && npm run copy:index && npm run copy:styles",
     "start": "node ./node_modules/http-server/bin/http-server ./dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src/**/*.js",
@@ -14,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "popper": "1.0.1",
     "bootstrap": "4.3.1"
   },
   "devDependencies": {
@@ -29,6 +35,7 @@
     "http-server": "0.11.1",
     "style-loader": "0.23.1",
     "webpack": "4.30.0",
-    "webpack-cli": "3.3.2"
+    "webpack-cli": "3.3.2",
+    "rimraf": "2.6.3"
   }
 }
