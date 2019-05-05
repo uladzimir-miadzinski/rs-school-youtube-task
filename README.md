@@ -1,6 +1,7 @@
 Short description:
 
 * `npm run build` - to build `src` folder files into `dist` folder.
+* `npm run build:dev` - to make build after `npm run build` and skip copy `node_modules`
 * `npm run start` - to start `dist` project after build.
 * `npm run lint` - to check for linter problems (code style - airbnb)
 * `npm run lint:fix` - to fix linter problems
