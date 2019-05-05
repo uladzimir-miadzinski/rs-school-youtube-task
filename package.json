@@ -5,19 +5,23 @@
   "main": "./src/index.html",
   "scripts": {
     "remove:dist": "rimraf -f ./dist",
+    "copy:favicon": "copyfiles -u 1 ./src/favicon.ico ./dist",
+    "copy:jquery": "copyfiles -u 3 ./node_modules/jquery/dist/jquery.slim.js ./dist/js",
+    "copy:bootstrap:js:map": "copyfiles -u 4 ./node_modules/bootstrap/dist/js/bootstrap.min.js.map ./dist/js",
     "copy:bootstrap:js": "copyfiles -u 4 ./node_modules/bootstrap/dist/js/bootstrap.min.js ./dist/js",
+    "copy:bootstrap:css:map": "copyfiles -u 4 ./node_modules/bootstrap/dist/css/bootstrap.min.css.map ./dist/css",
     "copy:bootstrap:css": "copyfiles -u 4 ./node_modules/bootstrap/dist/css/bootstrap.min.css ./dist/css",
-    "copy:bootstrap": "npm run copy:bootstrap:css && npm run copy:bootstrap:js",
+    "copy:bootstrap": "npm run copy:bootstrap:css && npm run copy:bootstrap:js && npm run copy:bootstrap:css:map && npm run copy:bootstrap:js:map && npm run copy:jquery",
     "copy:styles": "copyfiles -u 2 ./src/styles/*.css ./dist/css && npm run copy:bootstrap",
     "copy:index": "copyfiles -u 1 ./src/index.html ./dist",
-    "build": "npm run remove:dist && webpack --display-error-details && npm run copy:index && npm run copy:styles",
+    "build": "npm run remove:dist && webpack --display-error-details && npm run copy:index && npm run copy:styles && npm run copy:favicon",
     "build:prod": "npm run lint && npm run build",
     "start": "node ./node_modules/http-server/bin/http-server ./dist",
     "test": "jest",
     "lint": "eslint ./src/**/*.js",
     "lint:fix": "eslint --fix ./src/**/*.js"
   },
-  "author": "",
+  "author": "Uladzimir Miadzinski",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "4.3.1"
@@ -34,6 +38,7 @@
     "webpack": "4.30.0",
     "webpack-cli": "3.3.2",
     "rimraf": "2.6.3",
-    "jest": "24.8.0"
+    "jest": "24.8.0",
+    "jquery": "3.4.1"
   }
 }
