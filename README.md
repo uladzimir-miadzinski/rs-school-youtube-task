@@ -15,4 +15,6 @@ Short description:
 
 ***
 
-To run this project - run this commands one by one: `npm run build`, `npm run start` 
+To run this project - run this commands one by one: 
+
+`npm install`,`npm run build`, `npm run start` 
