@@ -1,3 +1,9 @@
-import { search } from './search';
+import { bindSearchComponentEvents } from './search';
+import { drawSearchComponent } from './drawer';
 
-search('sample');
+const init = () => {
+  drawSearchComponent();
+  bindSearchComponentEvents();
+};
+
+init();

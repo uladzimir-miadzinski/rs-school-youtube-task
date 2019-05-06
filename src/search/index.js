@@ -1,1 +1,2 @@
-export const search = query => query;
+export { search, bindSearchComponentEvents } from './engine';
+export { getSearchLine, getSearchBtn } from './component';
